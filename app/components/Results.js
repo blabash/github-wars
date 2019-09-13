@@ -9,6 +9,8 @@ import {
   FaUser
 } from 'react-icons/fa';
 import Card from './Card';
+import Loading from './Loading';
+import Tooltip from './Tooltip';
 import PropTypes from 'prop-types';
 
 function ProfileList({ profile }) {
@@ -19,16 +21,20 @@ function ProfileList({ profile }) {
         {profile.name}
       </li>
       {profile.location && (
-        <li>
-          <FaCompass color='rgb(144, 115, 255)' size={22} />
-          {profile.location}
-        </li>
+        <Tooltip text="User's location">
+          <li>
+            <FaCompass color='rgb(144, 115, 255)' size={22} />
+            {profile.location}
+          </li>
+        </Tooltip>
       )}
       {profile.company && (
-        <li>
-          <FaBriefcase color='#795548' size={22} />
-          {profile.company}
-        </li>
+        <Tooltip text="User's company">
+          <li>
+            <FaBriefcase color='#795548' size={22} />
+            {profile.company}
+          </li>
+        </Tooltip>
       )}
       <li>
         <FaUsers color='rgb(129, 195, 245)' size={22} />
@@ -82,7 +88,7 @@ export default class Results extends React.Component {
     const { winner, loser, error, loading } = this.state;
 
     if (loading === true) {
-      return <p>LOADING</p>;
+      return <Loading text='Battling' />;
     }
 
     if (error) {
