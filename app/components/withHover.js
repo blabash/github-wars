@@ -40,6 +40,8 @@ const withHover = (Component, propName = 'hovering') => {
   };
 };
 
-withHover.propTypes = {};
+withHover.propTypes = {
+  propName: PropTypes.string.isRequired
+};
 
 export default withHover;
