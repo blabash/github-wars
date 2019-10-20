@@ -1,3 +1,5 @@
+//UNUSED IN REST OF APP
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
